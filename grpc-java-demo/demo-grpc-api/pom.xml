@@ -35,11 +35,6 @@
             <artifactId>annotations-api</artifactId>
             <scope>provided</scope>
         </dependency>
-
-        <!--        <dependency>-->
-        <!--            <groupId></groupId>-->
-        <!--            <artifactId></artifactId>-->
-        <!--        </dependency>-->
     </dependencies>
 
 
@@ -57,6 +52,8 @@
                 <artifactId>protobuf-maven-plugin</artifactId>
                 <version>0.6.1</version>
                 <configuration>
+                    <clearOutputDirectory>false</clearOutputDirectory>
+                    <outputDirectory>${project.basedir}/src/main/java</outputDirectory>
                     <protocArtifact>com.google.protobuf:protoc:${protoc.version}:exe:${os.detected.classifier}</protocArtifact>
                     <pluginId>grpc-java</pluginId>
                     <pluginArtifact>io.grpc:protoc-gen-grpc-java:${grpc.version}:exe:${os.detected.classifier}</pluginArtifact>

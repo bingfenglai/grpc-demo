@@ -24,3 +24,4 @@ hs_err_pid*
 /grpc-demo/.idea
 /grpc-demo/demo-grpc-api/target
 target
+/grpc-java-demo/.idea
