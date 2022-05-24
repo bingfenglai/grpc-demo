@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+option java_multiple_files = false;
+
+option java_package = "pers.lbf.news.proto";
+
+option java_outer_classname = "NewsProto";
+
+package news;
+
+service NewsService{
+    rpc List(NewsReq) returns (NewsResp){}
+}
+
+message NewsReq{
+    string date = 1;
+}
+
+message NewsResp{
+    repeated News news = 1;
+}
+
+message News{
+    int32 id = 1;
+    string title = 2;
+    string content = 3;
+    int64 create_time = 4;
+}
+
+
+
