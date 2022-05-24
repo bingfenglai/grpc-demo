@@ -24,8 +24,6 @@ public class ClientApp {
 
     public static void main(String[] args) {
 
-        System.out.println(5 >>> 1);
-
         ManagedChannel managedChannel = ManagedChannelBuilder
                 .forAddress(serverHost, serverPort)
                 .usePlaintext()
