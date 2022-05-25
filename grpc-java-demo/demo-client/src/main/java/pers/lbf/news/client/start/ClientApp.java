@@ -11,7 +11,7 @@ import pers.lbf.news.proto.NewsServiceGrpc;
  */
 public class ClientApp {
 
-    final static String SERVER_HOST = "192.168.3.6";
+    final static String SERVER_HOST = "localhost";
     final static Integer SERVER_PORT = 9527;
 
 
@@ -22,16 +22,21 @@ public class ClientApp {
                 .usePlaintext()
                 .build();
 
-        NewsServiceGrpc.NewsServiceBlockingStub newsServiceStub = NewsServiceGrpc.newBlockingStub(managedChannel);
+        try {
 
-        NewsProto.NewsReq newsReq = NewsProto.NewsReq
-                .newBuilder()
-                .setDate("2022-05-24")
-                .build();
+            NewsServiceGrpc.NewsServiceBlockingStub newsServiceStub = NewsServiceGrpc.newBlockingStub(managedChannel);
 
-        NewsProto.NewsResp list = newsServiceStub.list(newsReq);
+            NewsProto.NewsReq newsReq = NewsProto.NewsReq
+                    .newBuilder()
+                    .setDate("2022-05-24")
+                    .build();
 
-        list.getNewsList().forEach(System.out::println);
+            NewsProto.NewsResp list = newsServiceStub.list(newsReq);
+
+            list.getNewsList().forEach(System.out::println);
+        } finally {
+            managedChannel.shutdown();
+        }
 
 //        NewsServiceGrpc.NewsServiceFutureStub newsServiceFutureStub = NewsServiceGrpc.newFutureStub(managedChannel);
 //
