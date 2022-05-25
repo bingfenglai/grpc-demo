@@ -1,16 +1,9 @@
 package pers.lbf.news.client.start;
 
-import com.google.common.util.concurrent.Atomics;
-import com.google.common.util.concurrent.FutureCallback;
-import com.google.common.util.concurrent.Futures;
-import com.google.common.util.concurrent.ListenableFuture;
-import io.grpc.Channel;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
 import pers.lbf.news.proto.NewsProto;
 import pers.lbf.news.proto.NewsServiceGrpc;
-
-import java.util.concurrent.*;
 
 /**
  * @author ferryman
@@ -18,14 +11,14 @@ import java.util.concurrent.*;
  */
 public class ClientApp {
 
-    final static String serverHost = "192.168.3.6";
-    final static Integer serverPort = 9527;
+    final static String SERVER_HOST = "192.168.3.6";
+    final static Integer SERVER_PORT = 9527;
 
 
     public static void main(String[] args) {
 
         ManagedChannel managedChannel = ManagedChannelBuilder
-                .forAddress(serverHost, serverPort)
+                .forAddress(SERVER_HOST, SERVER_PORT)
                 .usePlaintext()
                 .build();
 

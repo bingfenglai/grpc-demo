@@ -11,14 +11,14 @@ import java.io.IOException;
  * @since 2022/5/24 14:57
  */
 public class ServerApp {
+    final static Integer SERVER_PORT = 9527;
 
     public static void main(String[] args) throws InterruptedException, IOException {
-        int port =9527;
         Server server = ServerBuilder
-                .forPort(port)
+                .forPort(SERVER_PORT)
                 .addService(new NewsServiceImpl())
                 .build();
-        System.out.printf("server start completed！port: %d",port);
+        System.out.printf("server start completed！port: %d", SERVER_PORT);
 
         server.start();
         server.awaitTermination();
