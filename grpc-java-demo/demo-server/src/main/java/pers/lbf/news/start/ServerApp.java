@@ -11,7 +11,7 @@ import java.io.IOException;
  * @since 2022/5/24 14:57
  */
 public class ServerApp {
-    final static Integer SERVER_PORT = 9527;
+    final static int SERVER_PORT = 9527;
 
     public static void main(String[] args) throws InterruptedException, IOException {
         Server server = ServerBuilder

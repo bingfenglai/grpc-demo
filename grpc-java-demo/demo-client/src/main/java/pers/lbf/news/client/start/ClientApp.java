@@ -12,7 +12,7 @@ import pers.lbf.news.proto.NewsServiceGrpc;
 public class ClientApp {
 
     final static String SERVER_HOST = "localhost";
-    final static Integer SERVER_PORT = 9527;
+    final static int SERVER_PORT = 9527;
 
 
     public static void main(String[] args) {
