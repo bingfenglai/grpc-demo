@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+option java_multiple_files = false;
+option java_package = "pers.lbf.news.proto";
+option java_outer_classname = "SmsProto";
+
+package sms;
+
+service SmsService {
+    rpc Send(SmsSendReq) returns (stream SmsSendResp) {}
+}
+
+message SmsSendReq {
+    repeated string number = 1;
+    string content = 2;
+}
+
+message SmsSendResp {
+    string result = 1;
+}
+
+

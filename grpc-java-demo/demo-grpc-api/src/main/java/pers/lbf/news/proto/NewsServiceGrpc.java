@@ -3,10 +3,13 @@ package pers.lbf.news.proto;
 import static io.grpc.MethodDescriptor.generateFullMethodName;
 
 /**
+ * <pre>
+ * 服务定义，用于描述要生成API接口，
+ * </pre>
  */
 @javax.annotation.Generated(
     value = "by gRPC proto compiler (version 1.45.1)",
-    comments = "Source: news.proto")
+    comments = "Source: news/news.proto")
 @io.grpc.stub.annotations.GrpcGenerated
 public final class NewsServiceGrpc {
 
@@ -91,10 +94,16 @@ public final class NewsServiceGrpc {
   }
 
   /**
+   * <pre>
+   * 服务定义，用于描述要生成API接口，
+   * </pre>
    */
   public static abstract class NewsServiceImplBase implements io.grpc.BindableService {
 
     /**
+     * <pre>
+     * rpc方法
+     * </pre>
      */
     public void list(pers.lbf.news.proto.NewsProto.NewsReq request,
         io.grpc.stub.StreamObserver<pers.lbf.news.proto.NewsProto.NewsResp> responseObserver) {
@@ -115,6 +124,9 @@ public final class NewsServiceGrpc {
   }
 
   /**
+   * <pre>
+   * 服务定义，用于描述要生成API接口，
+   * </pre>
    */
   public static final class NewsServiceStub extends io.grpc.stub.AbstractAsyncStub<NewsServiceStub> {
     private NewsServiceStub(
@@ -129,6 +141,9 @@ public final class NewsServiceGrpc {
     }
 
     /**
+     * <pre>
+     * rpc方法
+     * </pre>
      */
     public void list(pers.lbf.news.proto.NewsProto.NewsReq request,
         io.grpc.stub.StreamObserver<pers.lbf.news.proto.NewsProto.NewsResp> responseObserver) {
@@ -138,6 +153,9 @@ public final class NewsServiceGrpc {
   }
 
   /**
+   * <pre>
+   * 服务定义，用于描述要生成API接口，
+   * </pre>
    */
   public static final class NewsServiceBlockingStub extends io.grpc.stub.AbstractBlockingStub<NewsServiceBlockingStub> {
     private NewsServiceBlockingStub(
@@ -152,6 +170,9 @@ public final class NewsServiceGrpc {
     }
 
     /**
+     * <pre>
+     * rpc方法
+     * </pre>
      */
     public pers.lbf.news.proto.NewsProto.NewsResp list(pers.lbf.news.proto.NewsProto.NewsReq request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
@@ -160,6 +181,9 @@ public final class NewsServiceGrpc {
   }
 
   /**
+   * <pre>
+   * 服务定义，用于描述要生成API接口，
+   * </pre>
    */
   public static final class NewsServiceFutureStub extends io.grpc.stub.AbstractFutureStub<NewsServiceFutureStub> {
     private NewsServiceFutureStub(
@@ -174,6 +198,9 @@ public final class NewsServiceGrpc {
     }
 
     /**
+     * <pre>
+     * rpc方法
+     * </pre>
      */
     public com.google.common.util.concurrent.ListenableFuture<pers.lbf.news.proto.NewsProto.NewsResp> list(
         pers.lbf.news.proto.NewsProto.NewsReq request) {
