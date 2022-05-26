@@ -21,7 +21,7 @@ public class ServerApp {
         System.out.printf("server start completed！port: %d", SERVER_PORT);
 
         server.start();
-        System.out.printf("server start completed！port: %d",port);
+        System.out.printf("server start completed！port: %d", SERVER_PORT);
         server.awaitTermination();
         System.out.println("server exited successfully!");
     }
