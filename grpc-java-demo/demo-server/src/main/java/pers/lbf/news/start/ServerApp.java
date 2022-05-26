@@ -18,9 +18,10 @@ public class ServerApp {
                 .forPort(port)
                 .addService(new NewsServiceImpl())
                 .build();
-        System.out.printf("server start completed！port: %d",port);
 
         server.start();
+        System.out.printf("server start completed！port: %d",port);
         server.awaitTermination();
+        System.out.println("server exited successfully!");
     }
 }
