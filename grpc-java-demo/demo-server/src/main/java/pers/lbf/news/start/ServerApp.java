@@ -3,6 +3,7 @@ package pers.lbf.news.start;
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
 import pers.lbf.news.server.service.NewsServiceImpl;
+import pers.lbf.news.server.service.SmsServiceImpl;
 
 import java.io.IOException;
 
@@ -17,6 +18,7 @@ public class ServerApp {
         Server server = ServerBuilder
                 .forPort(SERVER_PORT)
                 .addService(new NewsServiceImpl())
+                .addService(new SmsServiceImpl())
                 .build();
         System.out.printf("server start completed！port: %d", SERVER_PORT);
 
