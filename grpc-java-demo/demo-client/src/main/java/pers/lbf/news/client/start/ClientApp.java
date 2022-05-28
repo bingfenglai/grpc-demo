@@ -2,7 +2,7 @@ package pers.lbf.news.client.start;
 
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
-import pers.lbf.news.proto.NewsProto;
+import pers.lbf.news.proto.NewsProtoMessage;
 import pers.lbf.news.proto.NewsServiceGrpc;
 
 /**
@@ -26,12 +26,12 @@ public class ClientApp {
 
             NewsServiceGrpc.NewsServiceBlockingStub newsServiceStub = NewsServiceGrpc.newBlockingStub(managedChannel);
 
-            NewsProto.NewsReq newsReq = NewsProto.NewsReq
+            NewsProtoMessage.NewsReq newsReq = NewsProtoMessage.NewsReq
                     .newBuilder()
                     .setDate("2022-05-24")
                     .build();
 
-            NewsProto.NewsResp list = newsServiceStub.list(newsReq);
+            NewsProtoMessage.NewsResp list = newsServiceStub.list(newsReq);
 
             list.getNewsList().forEach(System.out::println);
         } finally {

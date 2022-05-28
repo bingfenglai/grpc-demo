@@ -18,29 +18,29 @@ public final class NewsServiceGrpc {
   public static final String SERVICE_NAME = "news.NewsService";
 
   // Static method descriptors that strictly reflect the proto.
-  private static volatile io.grpc.MethodDescriptor<pers.lbf.news.proto.NewsProto.NewsReq,
-      pers.lbf.news.proto.NewsProto.NewsResp> getListMethod;
+  private static volatile io.grpc.MethodDescriptor<pers.lbf.news.proto.NewsProtoMessage.NewsReq,
+      pers.lbf.news.proto.NewsProtoMessage.NewsResp> getListMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "List",
-      requestType = pers.lbf.news.proto.NewsProto.NewsReq.class,
-      responseType = pers.lbf.news.proto.NewsProto.NewsResp.class,
+      requestType = pers.lbf.news.proto.NewsProtoMessage.NewsReq.class,
+      responseType = pers.lbf.news.proto.NewsProtoMessage.NewsResp.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<pers.lbf.news.proto.NewsProto.NewsReq,
-      pers.lbf.news.proto.NewsProto.NewsResp> getListMethod() {
-    io.grpc.MethodDescriptor<pers.lbf.news.proto.NewsProto.NewsReq, pers.lbf.news.proto.NewsProto.NewsResp> getListMethod;
+  public static io.grpc.MethodDescriptor<pers.lbf.news.proto.NewsProtoMessage.NewsReq,
+      pers.lbf.news.proto.NewsProtoMessage.NewsResp> getListMethod() {
+    io.grpc.MethodDescriptor<pers.lbf.news.proto.NewsProtoMessage.NewsReq, pers.lbf.news.proto.NewsProtoMessage.NewsResp> getListMethod;
     if ((getListMethod = NewsServiceGrpc.getListMethod) == null) {
       synchronized (NewsServiceGrpc.class) {
         if ((getListMethod = NewsServiceGrpc.getListMethod) == null) {
           NewsServiceGrpc.getListMethod = getListMethod =
-              io.grpc.MethodDescriptor.<pers.lbf.news.proto.NewsProto.NewsReq, pers.lbf.news.proto.NewsProto.NewsResp>newBuilder()
+              io.grpc.MethodDescriptor.<pers.lbf.news.proto.NewsProtoMessage.NewsReq, pers.lbf.news.proto.NewsProtoMessage.NewsResp>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "List"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  pers.lbf.news.proto.NewsProto.NewsReq.getDefaultInstance()))
+                  pers.lbf.news.proto.NewsProtoMessage.NewsReq.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  pers.lbf.news.proto.NewsProto.NewsResp.getDefaultInstance()))
+                  pers.lbf.news.proto.NewsProtoMessage.NewsResp.getDefaultInstance()))
               .setSchemaDescriptor(new NewsServiceMethodDescriptorSupplier("List"))
               .build();
         }
@@ -105,8 +105,8 @@ public final class NewsServiceGrpc {
      * rpc方法
      * </pre>
      */
-    public void list(pers.lbf.news.proto.NewsProto.NewsReq request,
-        io.grpc.stub.StreamObserver<pers.lbf.news.proto.NewsProto.NewsResp> responseObserver) {
+    public void list(pers.lbf.news.proto.NewsProtoMessage.NewsReq request,
+        io.grpc.stub.StreamObserver<pers.lbf.news.proto.NewsProtoMessage.NewsResp> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getListMethod(), responseObserver);
     }
 
@@ -116,8 +116,8 @@ public final class NewsServiceGrpc {
             getListMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
               new MethodHandlers<
-                pers.lbf.news.proto.NewsProto.NewsReq,
-                pers.lbf.news.proto.NewsProto.NewsResp>(
+                pers.lbf.news.proto.NewsProtoMessage.NewsReq,
+                pers.lbf.news.proto.NewsProtoMessage.NewsResp>(
                   this, METHODID_LIST)))
           .build();
     }
@@ -145,8 +145,8 @@ public final class NewsServiceGrpc {
      * rpc方法
      * </pre>
      */
-    public void list(pers.lbf.news.proto.NewsProto.NewsReq request,
-        io.grpc.stub.StreamObserver<pers.lbf.news.proto.NewsProto.NewsResp> responseObserver) {
+    public void list(pers.lbf.news.proto.NewsProtoMessage.NewsReq request,
+        io.grpc.stub.StreamObserver<pers.lbf.news.proto.NewsProtoMessage.NewsResp> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getListMethod(), getCallOptions()), request, responseObserver);
     }
@@ -174,7 +174,7 @@ public final class NewsServiceGrpc {
      * rpc方法
      * </pre>
      */
-    public pers.lbf.news.proto.NewsProto.NewsResp list(pers.lbf.news.proto.NewsProto.NewsReq request) {
+    public pers.lbf.news.proto.NewsProtoMessage.NewsResp list(pers.lbf.news.proto.NewsProtoMessage.NewsReq request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getListMethod(), getCallOptions(), request);
     }
@@ -202,8 +202,8 @@ public final class NewsServiceGrpc {
      * rpc方法
      * </pre>
      */
-    public com.google.common.util.concurrent.ListenableFuture<pers.lbf.news.proto.NewsProto.NewsResp> list(
-        pers.lbf.news.proto.NewsProto.NewsReq request) {
+    public com.google.common.util.concurrent.ListenableFuture<pers.lbf.news.proto.NewsProtoMessage.NewsResp> list(
+        pers.lbf.news.proto.NewsProtoMessage.NewsReq request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getListMethod(), getCallOptions()), request);
     }
@@ -229,8 +229,8 @@ public final class NewsServiceGrpc {
     public void invoke(Req request, io.grpc.stub.StreamObserver<Resp> responseObserver) {
       switch (methodId) {
         case METHODID_LIST:
-          serviceImpl.list((pers.lbf.news.proto.NewsProto.NewsReq) request,
-              (io.grpc.stub.StreamObserver<pers.lbf.news.proto.NewsProto.NewsResp>) responseObserver);
+          serviceImpl.list((pers.lbf.news.proto.NewsProtoMessage.NewsReq) request,
+              (io.grpc.stub.StreamObserver<pers.lbf.news.proto.NewsProtoMessage.NewsResp>) responseObserver);
           break;
         default:
           throw new AssertionError();

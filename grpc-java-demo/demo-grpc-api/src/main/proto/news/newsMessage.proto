@@ -1,0 +1,32 @@
+// 使用的语法规范
+syntax = "proto3";
+
+// 生成多个类
+option java_multiple_files = false;
+
+// java代码包
+option java_package = "pers.lbf.news.proto";
+
+// 外层类名
+option java_outer_classname = "NewsProtoMessage";
+
+
+// 消息 gRPC描述信息的基本单位
+message NewsReq {
+    // 字段：类型 名称 索引
+    // 索引标识号取值范围 1-2^29,其中[19000-19999]为预留号，不能使用
+    // 索引用来在二进制消息当中识别各个字段
+    string date = 1;
+}
+
+message NewsResp {
+    // repeated 声明这个字段是个集合
+    repeated News news = 1;
+}
+
+message News {
+    int32 id = 1;
+    string title = 2;
+    string content = 3;
+    int64 create_time = 4;
+}

@@ -1,7 +1,8 @@
 package pers.lbf.news.server.service;
 
+
 import io.grpc.stub.StreamObserver;
-import pers.lbf.news.proto.NewsProto;
+import pers.lbf.news.proto.NewsProtoMessage;
 import pers.lbf.news.proto.NewsServiceGrpc;
 
 import java.util.UUID;
@@ -16,19 +17,19 @@ public class NewsServiceImpl extends NewsServiceGrpc.NewsServiceImplBase {
      * @param responseObserver
      */
     @Override
-    public void list(NewsProto.NewsReq request, StreamObserver<NewsProto.NewsResp> responseObserver) {
+    public void list(NewsProtoMessage.NewsReq request, StreamObserver<NewsProtoMessage.NewsResp> responseObserver) {
 
         String dateStr = request.getDate();
-        NewsProto.NewsResp resp = null;
+        NewsProtoMessage.NewsResp resp = null;
 
 
         try {
 
 
-            NewsProto.NewsResp.Builder newsRespBuilder = NewsProto.NewsResp.newBuilder();
+            NewsProtoMessage.NewsResp.Builder newsRespBuilder = NewsProtoMessage.NewsResp.newBuilder();
 
             for (int i = 0; i < 10; i++) {
-                NewsProto.News news = NewsProto.News.newBuilder()
+                NewsProtoMessage.News news = NewsProtoMessage.News.newBuilder()
                         .setId(i)
                         .setCreateTime(System.currentTimeMillis())
                         .setTitle("news" + 1 + dateStr)
@@ -39,9 +40,9 @@ public class NewsServiceImpl extends NewsServiceGrpc.NewsServiceImplBase {
 
             resp = newsRespBuilder.build();
 
-        }catch (Exception e) {
+        } catch (Exception e) {
             responseObserver.onError(e);
-        }finally {
+        } finally {
             responseObserver.onNext(resp);
         }
 

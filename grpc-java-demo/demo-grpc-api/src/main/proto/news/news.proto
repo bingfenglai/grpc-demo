@@ -13,31 +13,15 @@ option java_outer_classname = "NewsProto";
 // 逻辑包名
 package news;
 
+import "news/newsMessage.proto";
+
 // 服务定义，用于描述要生成API接口，
 service NewsService {
     // rpc方法
     rpc List(NewsReq) returns (NewsResp) {}
 }
 
-// 消息 gRPC描述信息的基本单位
-message NewsReq {
-    // 字段：类型 名称 索引
-    // 索引标识号取值范围 1-2^29,其中[19000-19999]为预留号，不能使用
-    // 索引用来在二进制消息当中识别各个字段
-    string date = 1;
-}
 
-message NewsResp {
-    // repeated 声明这个字段是个集合
-    repeated News news = 1;
-}
-
-message News {
-    int32 id = 1;
-    string title = 2;
-    string content = 3;
-    int64 create_time = 4;
-}
 
 
 
