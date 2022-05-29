@@ -58,4 +58,50 @@ public class SmsServiceImpl extends SmsServiceGrpc.SmsServiceImplBase {
         responseObserver.onCompleted();
 
     }
+
+
+    /**
+     * @param responseObserver
+     */
+    @Override
+    public StreamObserver<SmsProtoMessage.CreatePhoneReq> createPhone(StreamObserver<SmsProtoMessage.CreatePhoneResp> responseObserver) {
+        return new StreamObserver<SmsProtoMessage.CreatePhoneReq>() {
+
+            int i = 0;
+
+            /**
+             * 收到请求时
+             * @param createPhoneReq
+             */
+            @Override
+            public void onNext(SmsProtoMessage.CreatePhoneReq createPhoneReq) {
+                System.out.println("收到手机号：" + createPhoneReq.getPhone());
+                i++;
+            }
+
+            /**
+             * 发生错误时
+             * @param throwable
+             */
+            @Override
+            public void onError(Throwable throwable) {
+                throwable.printStackTrace();
+            }
+
+            /**
+             * 处理完成时
+             */
+            @Override
+            public void onCompleted() {
+                SmsProtoMessage.CreatePhoneResp createPhoneResp = SmsProtoMessage.CreatePhoneResp.newBuilder()
+                        .setMsg(String.format("录入手机号完成，共录入%d个", i))
+                        .build();
+
+                responseObserver.onNext(createPhoneResp);
+                responseObserver.onCompleted();
+
+
+            }
+        };
+    }
 }

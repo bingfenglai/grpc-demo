@@ -24,9 +24,10 @@ public final class SmsProto {
   static {
     java.lang.String[] descriptorData = {
       "\n\024sms/smsService.proto\022\003sms\032\024sms/smsMess" +
-      "age.proto23\n\nSmsService\022%\n\004Send\022\013.SmsSen" +
-      "dReq\032\014.SmsSendResp\"\0000\001B!\n\023pers.lbf.news." +
-      "protoB\010SmsProtoP\000b\006proto3"
+      "age.proto2i\n\nSmsService\022%\n\004Send\022\013.SmsSen" +
+      "dReq\032\014.SmsSendResp\"\0000\001\0224\n\013CreatePhone\022\017." +
+      "CreatePhoneReq\032\020.CreatePhoneResp\"\000(\001B!\n\023" +
+      "pers.lbf.news.protoB\010SmsProtoP\000b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

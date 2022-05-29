@@ -10,6 +10,8 @@ import "sms/smsMessage.proto";
 
 service SmsService {
     rpc Send(SmsSendReq) returns (stream SmsSendResp) {}
+    rpc CreatePhone(stream CreatePhoneReq) returns (CreatePhoneResp) {}
+
 }
 
 

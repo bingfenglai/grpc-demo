@@ -12,3 +12,11 @@ message SmsSendReq {
 message SmsSendResp {
     string result = 1;
 }
+
+message CreatePhoneReq {
+    string phone = 1;
+}
+
+message CreatePhoneResp {
+    string msg = 1;
+}
