@@ -14,7 +14,7 @@ service SmsService {
     // 客户端流
     rpc CreatePhone(stream CreatePhoneReq) returns (CreatePhoneResp) {}
     // 双向流
-    rpc CreateAndSend(stream PhoneReq) returns (stream CreateAndSendResp) {}
+    rpc CreateWith2Stream(stream PhoneReq) returns (stream CreateAndSendResp) {}
 
 }
 

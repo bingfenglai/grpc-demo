@@ -48,7 +48,7 @@ public class BidirectionalStreamDemo {
         };
 
 
-        StreamObserver<SmsProtoMessage.PhoneReq> createAndSendReqSb = smsServiceStub.createAndSend(respStreamObserver);
+        StreamObserver<SmsProtoMessage.PhoneReq> createAndSendReqSb = smsServiceStub.createWith2Stream(respStreamObserver);
 
         for (int i = 0; i < 10; i++) {
             createAndSendReqSb.onNext(

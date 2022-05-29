@@ -78,34 +78,34 @@ public final class SmsServiceGrpc {
   }
 
   private static volatile io.grpc.MethodDescriptor<pers.lbf.news.proto.SmsProtoMessage.PhoneReq,
-      pers.lbf.news.proto.SmsProtoMessage.CreateAndSendResp> getCreateAndSendMethod;
+      pers.lbf.news.proto.SmsProtoMessage.CreateAndSendResp> getCreateWith2StreamMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
-      fullMethodName = SERVICE_NAME + '/' + "CreateAndSend",
+      fullMethodName = SERVICE_NAME + '/' + "CreateWith2Stream",
       requestType = pers.lbf.news.proto.SmsProtoMessage.PhoneReq.class,
       responseType = pers.lbf.news.proto.SmsProtoMessage.CreateAndSendResp.class,
       methodType = io.grpc.MethodDescriptor.MethodType.BIDI_STREAMING)
   public static io.grpc.MethodDescriptor<pers.lbf.news.proto.SmsProtoMessage.PhoneReq,
-      pers.lbf.news.proto.SmsProtoMessage.CreateAndSendResp> getCreateAndSendMethod() {
-    io.grpc.MethodDescriptor<pers.lbf.news.proto.SmsProtoMessage.PhoneReq, pers.lbf.news.proto.SmsProtoMessage.CreateAndSendResp> getCreateAndSendMethod;
-    if ((getCreateAndSendMethod = SmsServiceGrpc.getCreateAndSendMethod) == null) {
+      pers.lbf.news.proto.SmsProtoMessage.CreateAndSendResp> getCreateWith2StreamMethod() {
+    io.grpc.MethodDescriptor<pers.lbf.news.proto.SmsProtoMessage.PhoneReq, pers.lbf.news.proto.SmsProtoMessage.CreateAndSendResp> getCreateWith2StreamMethod;
+    if ((getCreateWith2StreamMethod = SmsServiceGrpc.getCreateWith2StreamMethod) == null) {
       synchronized (SmsServiceGrpc.class) {
-        if ((getCreateAndSendMethod = SmsServiceGrpc.getCreateAndSendMethod) == null) {
-          SmsServiceGrpc.getCreateAndSendMethod = getCreateAndSendMethod =
+        if ((getCreateWith2StreamMethod = SmsServiceGrpc.getCreateWith2StreamMethod) == null) {
+          SmsServiceGrpc.getCreateWith2StreamMethod = getCreateWith2StreamMethod =
               io.grpc.MethodDescriptor.<pers.lbf.news.proto.SmsProtoMessage.PhoneReq, pers.lbf.news.proto.SmsProtoMessage.CreateAndSendResp>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.BIDI_STREAMING)
-              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "CreateAndSend"))
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "CreateWith2Stream"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   pers.lbf.news.proto.SmsProtoMessage.PhoneReq.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   pers.lbf.news.proto.SmsProtoMessage.CreateAndSendResp.getDefaultInstance()))
-              .setSchemaDescriptor(new SmsServiceMethodDescriptorSupplier("CreateAndSend"))
+              .setSchemaDescriptor(new SmsServiceMethodDescriptorSupplier("CreateWith2Stream"))
               .build();
         }
       }
     }
-    return getCreateAndSendMethod;
+    return getCreateWith2StreamMethod;
   }
 
   /**
@@ -181,9 +181,9 @@ public final class SmsServiceGrpc {
      * 双向流
      * </pre>
      */
-    public io.grpc.stub.StreamObserver<pers.lbf.news.proto.SmsProtoMessage.PhoneReq> createAndSend(
+    public io.grpc.stub.StreamObserver<pers.lbf.news.proto.SmsProtoMessage.PhoneReq> createWith2Stream(
         io.grpc.stub.StreamObserver<pers.lbf.news.proto.SmsProtoMessage.CreateAndSendResp> responseObserver) {
-      return io.grpc.stub.ServerCalls.asyncUnimplementedStreamingCall(getCreateAndSendMethod(), responseObserver);
+      return io.grpc.stub.ServerCalls.asyncUnimplementedStreamingCall(getCreateWith2StreamMethod(), responseObserver);
     }
 
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
@@ -203,12 +203,12 @@ public final class SmsServiceGrpc {
                 pers.lbf.news.proto.SmsProtoMessage.CreatePhoneResp>(
                   this, METHODID_CREATE_PHONE)))
           .addMethod(
-            getCreateAndSendMethod(),
+            getCreateWith2StreamMethod(),
             io.grpc.stub.ServerCalls.asyncBidiStreamingCall(
               new MethodHandlers<
                 pers.lbf.news.proto.SmsProtoMessage.PhoneReq,
                 pers.lbf.news.proto.SmsProtoMessage.CreateAndSendResp>(
-                  this, METHODID_CREATE_AND_SEND)))
+                  this, METHODID_CREATE_WITH2STREAM)))
           .build();
     }
   }
@@ -254,10 +254,10 @@ public final class SmsServiceGrpc {
      * 双向流
      * </pre>
      */
-    public io.grpc.stub.StreamObserver<pers.lbf.news.proto.SmsProtoMessage.PhoneReq> createAndSend(
+    public io.grpc.stub.StreamObserver<pers.lbf.news.proto.SmsProtoMessage.PhoneReq> createWith2Stream(
         io.grpc.stub.StreamObserver<pers.lbf.news.proto.SmsProtoMessage.CreateAndSendResp> responseObserver) {
       return io.grpc.stub.ClientCalls.asyncBidiStreamingCall(
-          getChannel().newCall(getCreateAndSendMethod(), getCallOptions()), responseObserver);
+          getChannel().newCall(getCreateWith2StreamMethod(), getCallOptions()), responseObserver);
     }
   }
 
@@ -304,7 +304,7 @@ public final class SmsServiceGrpc {
 
   private static final int METHODID_SEND = 0;
   private static final int METHODID_CREATE_PHONE = 1;
-  private static final int METHODID_CREATE_AND_SEND = 2;
+  private static final int METHODID_CREATE_WITH2STREAM = 2;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -340,8 +340,8 @@ public final class SmsServiceGrpc {
         case METHODID_CREATE_PHONE:
           return (io.grpc.stub.StreamObserver<Req>) serviceImpl.createPhone(
               (io.grpc.stub.StreamObserver<pers.lbf.news.proto.SmsProtoMessage.CreatePhoneResp>) responseObserver);
-        case METHODID_CREATE_AND_SEND:
-          return (io.grpc.stub.StreamObserver<Req>) serviceImpl.createAndSend(
+        case METHODID_CREATE_WITH2STREAM:
+          return (io.grpc.stub.StreamObserver<Req>) serviceImpl.createWith2Stream(
               (io.grpc.stub.StreamObserver<pers.lbf.news.proto.SmsProtoMessage.CreateAndSendResp>) responseObserver);
         default:
           throw new AssertionError();
@@ -396,7 +396,7 @@ public final class SmsServiceGrpc {
               .setSchemaDescriptor(new SmsServiceFileDescriptorSupplier())
               .addMethod(getSendMethod())
               .addMethod(getCreatePhoneMethod())
-              .addMethod(getCreateAndSendMethod())
+              .addMethod(getCreateWith2StreamMethod())
               .build();
         }
       }

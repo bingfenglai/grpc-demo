@@ -23,7 +23,7 @@ public class SmsServiceImpl extends SmsServiceGrpc.SmsServiceImplBase {
      * @param responseObserver
      */
     @Override
-    public StreamObserver<SmsProtoMessage.PhoneReq> createAndSend(StreamObserver<SmsProtoMessage.CreateAndSendResp> responseObserver) {
+    public StreamObserver<SmsProtoMessage.PhoneReq> createWith2Stream(StreamObserver<SmsProtoMessage.CreateAndSendResp> responseObserver) {
         return new StreamObserver<SmsProtoMessage.PhoneReq>() {
             @Override
             public void onNext(SmsProtoMessage.PhoneReq phoneReq) {
