@@ -20,3 +20,11 @@ message CreatePhoneReq {
 message CreatePhoneResp {
     string msg = 1;
 }
+
+message PhoneReq {
+    string phone = 1;
+}
+
+message CreateAndSendResp {
+    string msg = 1;
+}

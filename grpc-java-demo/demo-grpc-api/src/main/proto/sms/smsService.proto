@@ -9,8 +9,12 @@ package sms;
 import "sms/smsMessage.proto";
 
 service SmsService {
+    // 服务器流
     rpc Send(SmsSendReq) returns (stream SmsSendResp) {}
+    // 客户端流
     rpc CreatePhone(stream CreatePhoneReq) returns (CreatePhoneResp) {}
+    // 双向流
+    rpc CreateAndSend(stream PhoneReq) returns (stream CreateAndSendResp) {}
 
 }
 

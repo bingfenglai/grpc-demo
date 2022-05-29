@@ -20,10 +20,9 @@ public class ServerApp {
                 .addService(new NewsServiceImpl())
                 .addService(new SmsServiceImpl())
                 .build();
-        System.out.printf("server start completed！port: %d", SERVER_PORT);
 
         server.start();
-        System.out.printf("server start completed！port: %d", SERVER_PORT);
+        System.out.printf("server start completed！port: %d\n", SERVER_PORT);
         server.awaitTermination();
         System.out.println("server exited successfully!");
     }

@@ -1,25 +1,10 @@
-/*
- * Copyright 2020 赖柄沣 bingfengdev@aliyun.com
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *   http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- *
- */
-
 package pers.lbf.news.server.service;
 
 import io.grpc.stub.StreamObserver;
 import pers.lbf.news.proto.SmsProtoMessage;
 import pers.lbf.news.proto.SmsServiceGrpc;
+
+import java.time.LocalDateTime;
 
 /**
  * TODO
@@ -29,6 +14,45 @@ import pers.lbf.news.proto.SmsServiceGrpc;
  * @date 2022/5/28 21:43
  */
 public class SmsServiceImpl extends SmsServiceGrpc.SmsServiceImplBase {
+
+    /**
+     * <pre>
+     * 双向流
+     * </pre>
+     *
+     * @param responseObserver
+     */
+    @Override
+    public StreamObserver<SmsProtoMessage.PhoneReq> createAndSend(StreamObserver<SmsProtoMessage.CreateAndSendResp> responseObserver) {
+        return new StreamObserver<SmsProtoMessage.PhoneReq>() {
+            @Override
+            public void onNext(SmsProtoMessage.PhoneReq phoneReq) {
+                System.out.println(LocalDateTime.now() + "录入手机号" + phoneReq.getPhone());
+
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+
+                SmsProtoMessage.CreateAndSendResp createAndSendResp = SmsProtoMessage.CreateAndSendResp.newBuilder()
+                        .setMsg("已录入手机号" + phoneReq.getPhone())
+                        .build();
+                responseObserver.onNext(createAndSendResp);
+            }
+
+            @Override
+            public void onError(Throwable throwable) {
+                throwable.printStackTrace();
+            }
+
+            @Override
+            public void onCompleted() {
+                System.out.println(LocalDateTime.now() + "本次处理完成");
+                responseObserver.onCompleted();
+            }
+        };
+    }
 
     /**
      * 服务端流式通信
