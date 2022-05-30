@@ -3,3 +3,5 @@ grpc:
     grpc-service:
       address: 'static://localhost:7001'
       negotiation-type: plaintext
+  server:
+    port: 0
