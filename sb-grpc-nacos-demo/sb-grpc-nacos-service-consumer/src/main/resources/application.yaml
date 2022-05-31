@@ -1,0 +1,18 @@
+server:
+  port: 9092
+grpc:
+  server:
+    port: 0
+  client:
+    SB-GRPC-PROVIDER:
+      enableKeepAlive: true
+      keepAliveWithoutCalls: true
+      negotiation-type: plaintext
+
+spring:
+  application:
+    name: SB-GRPC-CONSUMER
+  cloud:
+    nacos:
+      discovery:
+        server-addr: shenghua-register:8848

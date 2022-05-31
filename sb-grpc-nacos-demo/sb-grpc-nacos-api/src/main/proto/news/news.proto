@@ -1,0 +1,27 @@
+// 使用的语法规范
+syntax = "proto3";
+
+// 生成多个类
+option java_multiple_files = false;
+
+// java代码包
+option java_package = "pers.lbf.news.proto";
+
+// 外层类名
+option java_outer_classname = "NewsProto";
+
+// 逻辑包名
+package news;
+
+import "news/newsMessage.proto";
+
+// 服务定义，用于描述要生成API接口，
+service NewsService {
+    // rpc方法
+    rpc List(NewsReq) returns (NewsResp) {}
+}
+
+
+
+
+
